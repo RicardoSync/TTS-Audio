@@ -1,6 +1,7 @@
 from gtts import gTTS
 import os
 import customtkinter
+from reproductor import reproducir_sonido
 
 def crear_audio(text, archivo_audio):
     texto = text
@@ -10,6 +11,9 @@ def crear_audio(text, archivo_audio):
     tts = gTTS(text=texto, lang=idioma, slow=False, tld='com.mx')
     
     tts.save(archivo_audio)
+
+    reproducir_sonido(archivo_audio)
+
 
 def datos():
     text = entrada_textbox.get("1.0", "end-1c")  
